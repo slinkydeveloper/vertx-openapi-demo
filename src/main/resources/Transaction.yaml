@@ -1,0 +1,19 @@
+type: object
+properties:
+  message:
+    type: string
+  from:
+    type: string
+    format: email
+  to:
+    type: string
+    format: email
+  value:
+    type: number
+    format: double
+additionalProperties: false
+required:
+  - message
+  - from
+  - to
+  - value
