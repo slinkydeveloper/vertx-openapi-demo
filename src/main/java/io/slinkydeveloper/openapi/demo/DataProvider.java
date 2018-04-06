@@ -32,4 +32,12 @@ public class DataProvider {
     public void addTransactions(Collection<Transaction> t) {
         transactions.addAll(t);
     }
+
+    public Double calculateSum(String from, String to) {
+        return transactions
+                .stream()
+                .filter(t -> t.getFrom().equals(from) && t.getTo().equals(to))
+                .mapToDouble(Transaction::getValue)
+                .sum();
+    }
 }

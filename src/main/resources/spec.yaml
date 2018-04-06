@@ -4,6 +4,25 @@ info:
    version: 1.0.0
 
 paths:
+  /api/transaction/:from/:to/sum:
+    get:
+      operationId: calculateSum
+      parameters:
+        - name: to
+          in: path
+          schema:
+            type: string
+        - name: from
+          in: path
+          schema:
+            type: string
+      responses:
+        200:
+          description: sum
+          content:
+            application/json:
+              type: number
+              format: double
   /api/transactions:
     get:
       operationId: getTransactionsList

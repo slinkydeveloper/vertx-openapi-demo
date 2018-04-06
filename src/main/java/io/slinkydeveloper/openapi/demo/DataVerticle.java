@@ -65,6 +65,13 @@ public class DataVerticle extends AbstractVerticle {
             );
         });
 
+        eventBus.consumer("transactions.demo/calculate").handler(objectMessage -> {
+            JsonObject payload = (JsonObject)objectMessage.body();
+            objectMessage.reply(
+                    dataProvider.calculateSum(payload.getString("from"), payload.getString("to"))
+            );
+        });
+
     }
 
 }

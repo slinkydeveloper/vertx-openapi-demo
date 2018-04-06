@@ -53,6 +53,19 @@ public class HttpServerVerticle extends AbstractVerticle {
                     routingContext.response().setStatusCode(200).setStatusMessage("OK").end();
                 });
 
+                routerFactory.addHandlerByOperationId("calculateSum", routingContext -> {
+                    RequestParameters params = routingContext.get("parsedParameters");
+                    JsonObject message = new JsonObject()
+                            .put("from", params.pathParameter("from").getString())
+                            .put("to", params.pathParameter("to").getString());
+                    vertx.eventBus().send("transactions.demo/calculate", message, messageAsyncResult ->
+                            routingContext
+                                    .response()
+                                    .setStatusCode(200)
+                                    .putHeader("Content-Type", "application/json")
+                                    .end(messageAsyncResult.result().body().toString())
+                    );
+                });
 
                 // Generate the router
                 Router router = routerFactory.getRouter();
