@@ -66,14 +66,11 @@ public class HttpServerVerticle extends AbstractVerticle {
                 future.complete();
             } else {
                 // Something went wrong during router factory initialization
-                Throwable exception = openAPI3RouterFactoryAsyncResult.cause();
-                System.err.println(exception);
-                System.exit(1);
+                future.fail(openAPI3RouterFactoryAsyncResult.cause());
             }
         });
     }
 
-    // SO BORING MANUAL MAPPING
     private JsonObject mapFiltersParameters(RequestParameters parameters) {
         JsonObject filters = new JsonObject();
         mapFiltersArray(parameters, filters, "from");

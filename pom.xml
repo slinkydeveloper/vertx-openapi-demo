@@ -5,11 +5,11 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>openapi-demo</groupId>
-  <artifactId>openapi-demo</artifactId>
+  <groupId>io.slinkydeveloper</groupId>
+  <artifactId>vertx-openapi-demo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>openapi-demo</name>
+  <name>vertx-openapi-demo</name>
 
   <properties>
     <main.verticle>io.slinkydeveloper.openapi.demo.HttpServerVerticle</main.verticle>
