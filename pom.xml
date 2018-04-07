@@ -13,13 +13,14 @@
 
   <properties>
     <main.verticle>io.slinkydeveloper.openapi.demo.HttpServerVerticle</main.verticle>
+    <vertx.version>3.5.1</vertx.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-core</artifactId>
-      <version>3.5.1</version>
+      <version>${vertx.version}</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -30,23 +31,23 @@
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-unit</artifactId>
-      <version>3.5.1</version>
+      <version>${vertx.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-web</artifactId>
-      <version>3.5.1</version>
+      <version>${vertx.version}</version>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-web-api-contract</artifactId>
-      <version>3.5.1</version>
+      <version>${vertx.version}</version>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-web-client</artifactId>
-      <version>3.5.1</version>
+      <version>${vertx.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

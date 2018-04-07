@@ -21,7 +21,7 @@ public class HttpServerVerticle extends AbstractVerticle {
 
     @Override
     public void start(Future future) {
-        OpenAPI3RouterFactory.create(this.vertx, getClass().getResource("/spec.yaml").getFile(), openAPI3RouterFactoryAsyncResult -> {
+        OpenAPI3RouterFactory.create(this.vertx, "spec.yaml", openAPI3RouterFactoryAsyncResult -> {
             if (openAPI3RouterFactoryAsyncResult.succeeded()) {
                 OpenAPI3RouterFactory routerFactory = openAPI3RouterFactoryAsyncResult.result();
 
@@ -56,8 +56,8 @@ public class HttpServerVerticle extends AbstractVerticle {
                 routerFactory.addHandlerByOperationId("calculateSum", routingContext -> {
                     RequestParameters params = routingContext.get("parsedParameters");
                     JsonObject message = new JsonObject()
-                            .put("from", params.pathParameter("from").getString())
-                            .put("to", params.pathParameter("to").getString());
+                            .put("from", params.queryParameter("from").getString())
+                            .put("to", params.queryParameter("to").getString());
                     vertx.eventBus().send("transactions.demo/calculate", message, messageAsyncResult ->
                             routingContext
                                     .response()
