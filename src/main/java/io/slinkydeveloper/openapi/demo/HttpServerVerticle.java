@@ -27,7 +27,6 @@ public class HttpServerVerticle extends AbstractVerticle {
 
                 // Enable automatic response when ValidationException is thrown
                 routerFactory.setOptions(new RouterFactoryOptions()
-                        .setMountValidationFailureHandler(true)
                         .setMountResponseContentTypeHandler(true)
                 );
 

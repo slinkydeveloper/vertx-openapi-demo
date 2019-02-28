@@ -13,7 +13,7 @@
 
   <properties>
     <main.verticle>io.slinkydeveloper.openapi.demo.HttpServerVerticle</main.verticle>
-    <vertx.version>3.5.1</vertx.version>
+    <vertx.version>3.6.3</vertx.version>
   </properties>
 
   <dependencies>
