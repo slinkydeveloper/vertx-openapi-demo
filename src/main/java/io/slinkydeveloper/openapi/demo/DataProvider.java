@@ -11,33 +11,33 @@ import java.util.stream.Collectors;
  */
 public class DataProvider {
 
-    List<Transaction> transactions;
+  List<Transaction> transactions;
 
-    DataProvider() {
-        transactions = new ArrayList<>();
-    }
+  DataProvider() {
+    transactions = new ArrayList<>();
+  }
 
-    public List<Transaction> getTransactions() {
-        return transactions;
-    }
+  public List<Transaction> getTransactions() {
+    return transactions;
+  }
 
-    public List<Transaction> getFilteredTransactions(Predicate<Transaction> p) {
-        return transactions.stream().filter(p).collect(Collectors.toList());
-    }
+  public List<Transaction> getFilteredTransactions(Predicate<Transaction> p) {
+    return transactions.stream().filter(p).collect(Collectors.toList());
+  }
 
-    public void addTransaction(Transaction t) {
-        transactions.add(t);
-    }
+  public void addTransaction(Transaction t) {
+    transactions.add(t);
+  }
 
-    public void addTransactions(Collection<Transaction> t) {
-        transactions.addAll(t);
-    }
+  public void addTransactions(Collection<Transaction> t) {
+    transactions.addAll(t);
+  }
 
-    public Double calculateSum(String from, String to) {
-        return transactions
-                .stream()
-                .filter(t -> t.getFrom().equals(from) && t.getTo().equals(to))
-                .mapToDouble(Transaction::getValue)
-                .sum();
-    }
+  public Double calculateSum(String from, String to) {
+    return transactions
+        .stream()
+        .filter(t -> t.getFrom().equals(from) && t.getTo().equals(to))
+        .mapToDouble(Transaction::getValue)
+        .sum();
+  }
 }

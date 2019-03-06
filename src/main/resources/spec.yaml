@@ -65,7 +65,7 @@ paths:
               schema:
                 type: array
                 items:                
-                  $ref: "./Transaction.yaml"
+                  $ref: "#/components/schemas/Transaction"
         500:
           description: Something wrong happened
     put:
@@ -76,7 +76,7 @@ paths:
           application/json:
             schema:
               anyOf:
-                - $ref: "./Transaction.yaml"
+                - $ref: "#/components/schemas/Transaction"
                 - type: object
                   properties:
                     batch_name:
@@ -84,7 +84,7 @@ paths:
                     batch:
                       type: array
                       items:
-                        $ref: "./Transaction.yaml"
+                        $ref: "#/components/schemas/Transaction"
                   required:
                     - batch
       responses:
@@ -94,4 +94,24 @@ paths:
           description: Something wrong happened
 
 components:
-  schemas: {}
+  schemas:
+    Transaction:
+      type: object
+      properties:
+        message:
+          type: string
+        from:
+          type: string
+          format: email
+        to:
+          type: string
+          format: email
+        value:
+          type: number
+          format: double
+      additionalProperties: false
+      required:
+        - message
+        - from
+        - to
+        - value

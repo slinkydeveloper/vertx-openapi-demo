@@ -1,5 +1,9 @@
 # vertx-openapi-demo
-Complete example of using OpenAPi 3 combined with Eclipse Vert.x
+Complete example of using OpenAPI 3 combined with Eclipse Vert.x
 
 ## Usage
-Just open it with Intellij Idea and run the MainVerticle
+
+```sh
+mvn package
+java -jar target/target/vertx-openapi-demo-0.0.1-SNAPSHOT-fat.jar
+```
